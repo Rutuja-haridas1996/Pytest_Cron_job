@@ -2,23 +2,18 @@ pipeline {
     agent any
      environment {
         AUTHOR = 'Rutuja Haridas'
+        folder = new File( 'backup/' )
     }
     triggers{ cron('H/5 * * * *') }
     stages {
         stage('Test') {
+            when {
+            expression { folder=='true' }
+                }
+
             steps {
-                echo 'pwd'
-                echo 'Backup'
-                sh """
-                   def exists = fileExists 'backup'
-
-                        if (exists) {
-                            echo 'Yes'
-                        } else {
-                            echo 'No'
-                        }
-
-                """
+                echo 'Backup folder exists'
+                //sh 'mkdir backup'
                 sh 'ls backup'
             }
         }
