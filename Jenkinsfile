@@ -9,7 +9,14 @@ pipeline {
             steps {
                 echo 'pwd'
                 echo 'Backup'
-                sh 'mkdir backup'
+                sh '''
+                   def folder = new File( '/backup' )
+
+                    if( !folder.exists() ) {
+                      backup.mkdirs()
+                    }
+
+                '''
                 sh 'ls backup'
             }
         }
