@@ -13,7 +13,7 @@ pipeline {
                         }
 
                 //sh 'mkdir backup'
-                sh 'ls backup'
+                sh 'ls -l'
             }
         }
         stage('Deploy') {
