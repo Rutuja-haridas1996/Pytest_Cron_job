@@ -7,7 +7,10 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                echo 'pwd'
+                echo 'Backup'
                 sh 'ls backup'
+
             }
         }
         stage('Deploy') {
