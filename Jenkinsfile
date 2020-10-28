@@ -13,7 +13,7 @@ pipeline {
                    def folder = new File( '/backup' )
 
                     if( !folder.exists() ) {
-                      backup.mkdirs()
+                      backup.mkdir()
                     }
 
                 '''
