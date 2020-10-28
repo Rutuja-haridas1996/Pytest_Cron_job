@@ -9,14 +9,14 @@ pipeline {
             steps {
                 echo 'pwd'
                 echo 'Backup'
-                sh '''
+                sh """
                    def folder = new File( '/var/lib/jenkins/workspace/Cron_Job/backup' )
 
                     if( !folder.exists() ) {
                       backup.mkdir()
                     }
 
-                '''
+                """
                 sh 'ls backup'
             }
         }
