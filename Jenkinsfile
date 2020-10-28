@@ -2,7 +2,7 @@ pipeline {
     agent any
      environment {
         AUTHOR = 'Rutuja Haridas'
-        folder = new File( 'backup/' )
+        def folder = new File( 'backup/' )
     }
     triggers{ cron('H/5 * * * *') }
     stages {
