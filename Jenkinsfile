@@ -9,6 +9,8 @@ pipeline {
             steps {
                 echo 'pwd'
                 echo 'Backup'
+                dir ('backup') {
+                        }
 
                 //sh 'mkdir backup'
                 sh 'ls backup'
