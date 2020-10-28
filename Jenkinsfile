@@ -10,11 +10,13 @@ pipeline {
                 echo 'pwd'
                 echo 'Backup'
                 sh """
-                   def folder = new File( '/var/lib/jenkins/workspace/Cron_Job/backup' )
+                   def exists = fileExists 'backup'
 
-                    if( !folder.exists() ) {
-                      backup.mkdir()
-                    }
+                        if (exists) {
+                            echo 'Yes'
+                        } else {
+                            echo 'No'
+                        }
 
                 """
                 sh 'ls backup'
