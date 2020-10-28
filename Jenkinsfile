@@ -3,20 +3,20 @@ pipeline {
      environment {
         AUTHOR = 'Rutuja Haridas'
     }
+    triggers{ cron('H/5 * * * *') }
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'pwd'
+                echo 'Backup'
+                sh 'ls backup'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying at prod'
+                sh 'chmod +x db_backup_script.sh'
+                sh './db_backup_script.sh'
+                echo 'Deploying at Dev'
             }
         }
     }
