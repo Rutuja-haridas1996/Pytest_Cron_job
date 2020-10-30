@@ -26,21 +26,21 @@ pipeline {
         }
 
         stage('Run Fab file') {
-//             input {
-//                 message "Should we continue?"
-//                 ok "Yes, we should."
-//                 submitter "alice,bob"
-//                 parameters {
-//                     string(name: 'HOSTNAME', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-//                     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-//
-//                 }
-//             }
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'HOSTNAME', defaultValue: 'host', description: 'Enter the hostname')
+                    password(name: 'PASSWORD', defaultValue: 'pass', description: 'Enter a password')
+
+                }
+            }
             steps {
-                   //echo "Hello, ${HOSTNAME}, nice to meet you. ${PASSWORD}"
-                   //echo "fab pwd -H ${HOSTNAME} --password=${PASSWORD}"
-                   //sh "fab pwd -H ${HOSTNAME} --password=${PASSWORD}"
-                   sh "fab pwd"
+                   echo "Hello, ${HOSTNAME}, nice to meet you. ${PASSWORD}"
+                   echo "fab pwd -H ${HOSTNAME} --password=${PASSWORD}"
+                   sh "fab pwd -H ${HOSTNAME} --password=${PASSWORD}"
+                   //sh "fab pwd"
             }
         }
     }
