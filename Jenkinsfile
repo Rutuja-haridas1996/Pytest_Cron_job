@@ -36,6 +36,7 @@ pipeline {
             steps {
                    echo "Hello, ${HOSTNAME}, nice to meet you. ${PASSWORD}"
                    echo "fab pwd -H ${HOSTNAME} --password=${PASSWORD}"
+                   sh "fab pwd -H ${HOSTNAME} --password=${PASSWORD}"
             }
         }
     }
