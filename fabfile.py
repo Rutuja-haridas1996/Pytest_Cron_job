@@ -4,7 +4,7 @@ from fabric.contrib.console import confirm
 
 
 def pwd():
-    local("pwd")
+    run("pwd")
 
 
 # /home/rutujaharidas/PycharmProjects/jenkins_3/Pytest_Cron_job
