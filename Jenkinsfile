@@ -29,12 +29,12 @@ pipeline {
                 submitter "alice,bob"
                 parameters {
                     string(name: 'HOSTNAME', defaultValue: 'host')
-                    string(name: 'PASSWORD', defaultValue: 'host')
+                    string(name: 'PASSWORD', defaultValue: 'password')
 
                 }
             }
             steps {
-                   sh 'fab pwd -H ${HOSTNAME} --password=${PASSWORD}'
+                   echo 'fab pwd -H ${HOSTNAME} --password=${PASSWORD}'
             }
         }
     }
