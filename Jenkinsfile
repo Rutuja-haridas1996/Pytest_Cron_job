@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                echo 'pwd'
+                sh 'pwd'
                 echo 'Backup'
                 dir ('backup') {
                         }
