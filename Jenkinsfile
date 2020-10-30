@@ -5,22 +5,26 @@ pipeline {
     }
     triggers{ cron('H/5 * * * *') }
     stages {
-        stage('Test') {
+
+        stage('Check Path and make backup folder') {
             steps {
                 echo 'pwd'
                 echo 'Backup'
                 dir ('backup') {
-                        }
-
-                //sh 'mkdir backup'
+                }
                 sh 'ls -l'
             }
         }
-        stage('Deploy') {
+
+        stage('Make virtual environment and install requirements') {
             steps {
-                sh 'chmod +x db_backup_script.sh'
-                sh './db_backup_script.sh'
-                echo 'Deploying at Dev'
+                sh 'virtualenv venv && . venv/bin/activate && pip install -r requirements.txt'
+            }
+        }
+
+        stage('Run Fab file') {
+            steps {
+                   sh 'fab pwd'
             }
         }
     }
