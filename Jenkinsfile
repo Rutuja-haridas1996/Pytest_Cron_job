@@ -34,7 +34,7 @@ pipeline {
                 }
             }
             steps {
-                   sh 'fab pwd -H ${HOSTNAME} --password ${PASSWORD}'
+                   sh 'fab pwd -H ${HOSTNAME} --password=${PASSWORD}'
             }
         }
     }
