@@ -30,7 +30,7 @@ pipeline {
                 submitter "alice,bob"
                 parameters {
                     string(name: 'HOSTNAME', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                    password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+                    //password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
 
                 }
             }
