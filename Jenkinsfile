@@ -16,12 +16,12 @@ pipeline {
             }
         }
 
-        stage('Make virtual environment and install requirements') {
-            steps {
-                sh 'python3 -m venv venv'
-                sh '. venv/bin/activate'
-            }
-        }
+//         stage('Make virtual environment and install requirements') {
+//             steps {
+//                 sh 'python3 -m venv venv'
+//                 sh '. venv/bin/activate'
+//             }
+//         }
 
         stage('Run Fab file') {
             input {
