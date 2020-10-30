@@ -28,7 +28,7 @@ pipeline {
                 ok "Yes, we should."
                 submitter "alice,bob"
                 parameters {
-                    string(name: 'HOSTNAME', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                    string(name: 'HOSTNAME', defaultValue: 'Hostname', description: 'Enter Hostname')
                     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
 
                 }
