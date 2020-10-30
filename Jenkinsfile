@@ -8,7 +8,7 @@ pipeline {
 
         stage('Check Path and make backup folder') {
             steps {
-                echo 'pwd'
+                sh 'pwd'
                 echo 'Backup'
                 dir ('backup') {
                 }
