@@ -1,30 +1,28 @@
 pipeline {
     agent any
-     environment {
-        AUTHOR = 'Rutuja Haridas'
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-    triggers{ cron('H/5 * * * *') }
     stages {
-
-        stage('Check Path and make backup folder') {
+        stage('Example') {
             steps {
-                sh 'pwd'
-                echo 'Backup'
-                dir ('backup') {
-                }
-                sh 'ls -l'
-            }
-        }
+                echo "Hello ${params.PERSON}"
 
-        stage('Make virtual environment and install requirements') {
-            steps {
-                sh 'virtualenv venv && . venv/bin/activate && pip install -r requirements.txt'
-            }
-        }
+                echo "Biography: ${params.BIOGRAPHY}"
 
-        stage('Run Fab file') {
-            steps {
-                   sh 'fab pwd'
+                echo "Toggle: ${params.TOGGLE}"
+
+                echo "Choice: ${params.CHOICE}"
+
+                echo "Password: ${params.PASSWORD}"
             }
         }
     }
