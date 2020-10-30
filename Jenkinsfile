@@ -18,7 +18,9 @@ pipeline {
 
         stage('Make virtual environment and install requirements') {
             steps {
-                sh 'virtualenv venv && . venv/bin/activate && pip install -r requirements.txt'
+                sh 'virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt'
+                sh 'pip3 uninstall fabric3'
+                sh 'pip3 install fabric3'
             }
         }
 
