@@ -3,7 +3,7 @@ pipeline {
      environment {
         AUTHOR = 'Rutuja Haridas'
     }
-    triggers{ cron('H/5 * * * *') }
+    //triggers{ cron('H/5 * * * *') }
     stages {
 
         stage('Check Path and make backup folder') {
