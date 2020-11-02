@@ -37,7 +37,7 @@ pipeline {
 //                 }
 //             }
             steps {
-                   sh 'pip install fabric'
+                   //sh 'pip install fabric'
                    sh "fab connect"
                    //sh "fab pwd"
             }
