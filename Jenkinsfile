@@ -26,20 +26,21 @@ pipeline {
         }
 
         stage('Run Fab file') {
-//             input {
-//                 message "Should we continue?"
-//                 ok "Yes, we should."
-//                 submitter "alice,bob"
-//                 parameters {
-//                     string(name: 'HOSTNAME', defaultValue: 'host', description: 'Enter the hostname')
-//                     password(name: 'PASSWORD', defaultValue: 'pass', description: 'Enter a password')
-//
-//                 }
-//             }
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'HOSTNAME', defaultValue: 'host', description: 'Enter the hostname')
+                    string(name: 'USER', defaultValue: 'user', description: 'Enter a user name')
+                    password(name: 'PASSWORD', defaultValue: 'pass', description: 'Enter a password')
+
+
+                }
+             }
             steps {
-                   //sh 'pip install fabric'
-                   sh "fab connect"
-                   //sh "fab pwd"
+                   sh " fab connect --user=${USER} --hostname=${HOSTNAME} --password=${PASSWORD}"
+
             }
         }
     }
