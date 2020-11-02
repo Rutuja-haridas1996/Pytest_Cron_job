@@ -1,14 +1,11 @@
-from __future__ import with_statement
-from fabric.api import *
-from fabric.contrib.console import confirm
+from fabric import *
 
 
-def pwd():
-    run("pwd")
+@task
+def hello(ctx):
+  print("hello")
 
-def run_backup_script():
-    #result = run("chmod +x /home/rutujaharidas/PycharmProjects/jenkins_3/Pytest_Cron_job/db_backup_script.sh")
-    run('crontab -l > /tmp/crondump')
-    run(
-        'echo "3 * * * * /home/rutujaharidas/PycharmProjects/jenkins_3/Pytest_Cron_job/db_backup_script.sh" >> /tmp/crondump')
-    run('crontab /tmp/crondump')
+@task
+def connect(ctx):
+  conn=Connection(host="rutujaharidas-HP-Pavilion-Laptop-15-cc1xx", connect_kwargs={"password": "root@123"})
+  conn.run('whoami')
