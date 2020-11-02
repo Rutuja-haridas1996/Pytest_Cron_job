@@ -37,8 +37,7 @@ pipeline {
 //                 }
 //             }
             steps {
-                   echo "Hello, ${HOSTNAME}, nice to meet you. ${PASSWORD}"
-                   echo "fab pwd -H ${HOSTNAME} --password=${PASSWORD}"
+                   sh 'pip install fabric'
                    sh "fab connect"
                    //sh "fab pwd"
             }
